@@ -95,7 +95,7 @@ public class LoginClient
     public async Task<HttpResponseMessage> PatchAsync<T>(string endpoint, string PrimaryKey, T updatedData)
     {
         await EnsureValidSessionAsync();
-
+            
         endpoint = endpoint + "('" + PrimaryKey + "')";
 
         var content = new StringContent(

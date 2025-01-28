@@ -4,16 +4,20 @@ using System.Text.Json.Serialization;
 
 public class Client
 {
-    [JsonPropertyName("ItemCode")]
+    [JsonPropertyName("CardCode")]
     public string CardCode { get; set; }
 
-    [JsonPropertyName("ItemName")]
+    [JsonPropertyName("CardName")]
     public string CardName { get; set; }
 
-    public Client(string cardCode, string cardName)
+    [JsonPropertyName("CardType")]
+    public string CardType { get; set; }
+
+    public Client(string cardCode, string cardName, string cardType)
     {
         CardCode = cardCode;
         CardName = cardName;
+        CardType = cardType;
     }
     public Client() { }
 }

@@ -53,7 +53,8 @@ try
     var newClient = new Client
     {
         CardCode = "CLI001",
-        CardName = "Test Client"
+        CardName = "Test Client",
+        CardType = "cCustomer"
     };
 
     //var response = await client.PostAsync("b1s/v2/Items", item);
@@ -64,7 +65,7 @@ try
     var response = await client.PostAsync("b1s/v2/BusinessPartners", newClient);
 
     var responseContent = await response.Content.ReadAsStringAsync();
-    Console.WriteLine($"Item created successfully: {responseContent}");
+    Console.WriteLine($"Client created successfully: {responseContent}");
 
     //POST END
 }
