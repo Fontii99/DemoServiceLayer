@@ -52,20 +52,28 @@ try
 
     var newClient = new Client
     {
-        CardCode = "CLI001",
-        CardName = "Test Client",
-        CardType = "cCustomer"
+        CardCode = "CLI005",
+        CardName = "Test Client"
     };
 
     //var response = await client.PostAsync("b1s/v2/Items", item);
 
     //var responseContent = await response.Content.ReadAsStringAsync();
     //Console.WriteLine($"Item created successfully: {responseContent}");
+    try
+    {
+        var response = await client.PostAsync("b1s/v2/BusinessPartners", newClient);
 
-    var response = await client.PostAsync("b1s/v2/BusinessPartners", newClient);
+        var responseContent = await response.Content.ReadAsStringAsync();
+        Console.WriteLine($"Client created successfully: {responseContent}");
+    }
+    catch (HttpRequestException ex )
+    {
+        Console.WriteLine(ex.ToString());
+    }
 
-    var responseContent = await response.Content.ReadAsStringAsync();
-    Console.WriteLine($"Client created successfully: {responseContent}");
+
+
 
     //POST END
 }
